@@ -51,7 +51,7 @@ class overridenoprice extends base {
     $this->icon = ''; // add image filename here; must be uploaded to the /images/ subdirectory
     $this->tax_class = MODULE_SHIPPING_OVERRIDE_NOPRICE_TAX_CLASS;
     $this->tax_basis = MODULE_SHIPPING_OVERRIDE_NOPRICE_TAX_BASIS;
-    $this->enabled = ((MODULE_SHIPPING_OVERRIDE_NOPRICE_STATUS == 'True') ? true : false);
+    $this->enabled = ((MODULE_SHIPPING_OVERRIDE_NOPRICE_STATUS == 'True' && $_SESSION['shipping_overide'] == 1) ? true : false);
   }
   function update_status() {
     global $order, $db;
@@ -75,6 +75,9 @@ class overridenoprice extends base {
       if ($check_flag == false) {
         $this->enabled = false;
       }
+    }
+    if($_SESSION['shipping_overide'] != 1){
+        $this->enabled = false;
     }
   }
   /**
