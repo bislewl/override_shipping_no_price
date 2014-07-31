@@ -1197,6 +1197,9 @@ if (!defined('IS_ADMIN_FLAG')) {
     case (($_SESSION['shipping_overide'] == 0) and $shipping_module == 'overridenoprice'):
         return false;
         break;
+    case (($_SESSION['shipping_overide'] == 0) and $shipping_module != 'overridenoprice'):
+        return true;
+        break;
     // eof shipping override
       // Free Shipping when 0 weight - enable freeshipper - ORDER_WEIGHT_ZERO_STATUS must be on
       case (ORDER_WEIGHT_ZERO_STATUS == '1' and ($check_cart_weight == 0 and $shipping_module == 'freeshipper')):
@@ -1208,10 +1211,10 @@ if (!defined('IS_ADMIN_FLAG')) {
         break;
       case (($_SESSION['cart']->free_shipping_items() == $check_cart_cnt) and $shipping_module == 'freeshipper'):
         return true;
-        break;
+        break;/*
       case (($_SESSION['cart']->free_shipping_items() == $check_cart_cnt) and $shipping_module != 'freeshipper'):
         return false;
-        break;
+        break;*/
       // Always free shipping only true - enable freeshipper
       case (($check_cart_free == $check_cart_cnt) and $shipping_module == 'freeshipper'):
         return true;
