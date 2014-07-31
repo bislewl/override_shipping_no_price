@@ -1188,10 +1188,10 @@ if (!defined('IS_ADMIN_FLAG')) {
         return true;
         break;
           // bof added for shipping override
-      case (($_SESSION['shipping_overide'] == 1) and $shipping_module == 'freeshipper'):
+      case (($_SESSION['shipping_overide'] == 1) and $shipping_module == 'override_noprice'):
         return true;
         break;
-      case (($_SESSION['shipping_overide'] == 1) and $shipping_module != 'freeshipper'):
+      case (($_SESSION['shipping_overide'] == 1) and $shipping_module != 'override_noprice'):
         return false;
         break;
     // eof shipping override

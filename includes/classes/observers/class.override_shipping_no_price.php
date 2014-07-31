@@ -31,15 +31,9 @@ class overrideShippingNoPriceObserver extends base {
 				}
                                 
 				if ($eligible_product_found == 1) {
-					define('MODULE_SHIPPING_FREESHIPPER_TEXT_TITLE', CONFIGURATION_OVERRIDESHIPPING_NO_PRICE_TITLE);
-                                        define('MODULE_SHIPPING_FREESHIPPER_TEXT_DESCRIPTION', CONFIGURATION_OVERRIDESHIPPING_NO_PRICE_DESCRIPTION);
-                                        define('MODULE_SHIPPING_FREESHIPPER_TEXT_WAY', CONFIGURATION_OVERRIDESHIPPING_NO_PRICE_WAY);
-                                        $_SESSION['shipping_overide'] = 1;
+					$_SESSION['shipping_overide'] = 1;
 				} else {
-                                        define('MODULE_SHIPPING_FREESHIPPER_TEXT_TITLE', 'FREE SHIPPING!');
-                                        define('MODULE_SHIPPING_FREESHIPPER_TEXT_DESCRIPTION', 'FREE SHIPPING');
-                                        define('MODULE_SHIPPING_FREESHIPPER_TEXT_WAY', 'No Delivery Charge');
-                                        unset($_SESSION['shipping_overide']);
+                                        $_SESSION['shipping_overide'] = 0;
 				}
 			
 		}
