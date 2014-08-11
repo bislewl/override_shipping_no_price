@@ -1197,6 +1197,9 @@ if (!defined('IS_ADMIN_FLAG')) {
     case (($_SESSION['shipping_overide'] == 0) and $shipping_module == 'overridenoprice'):
         return false;
         break;
+    case (($_SESSION['shipping_overide'] == 0) and $check_cart_free != $check_cart_cnt and $shipping_module == 'freeshipper'):
+        return false;
+        break;
     case (($_SESSION['shipping_overide'] == 0) and $shipping_module != 'overridenoprice'):
         return true;
         break;
@@ -1632,4 +1635,3 @@ if (!defined('IS_ADMIN_FLAG')) {
   require(DIR_FS_CATALOG . DIR_WS_FUNCTIONS . 'functions_lookups.php');
 ////
 /////////////////////////////////////////////
-
